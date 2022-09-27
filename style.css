@@ -1,0 +1,219 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
+
+:root{
+    --preto100: #1e1b1a;
+    --branco: rgb(255, 255, 255);
+    --principal: #FFCF24;
+    --principalAtiva:rgb(255, 233, 152);
+}
+.vermelho {
+    color: var(--branco);
+    background-color: #FF5D29;
+}
+.verde {
+    color: var(--branco);
+    background-color: #47D914;
+}
+.invisivel{
+    color: transparent;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    --font: var(--preto100);
+    --bg: var(--branco);
+    overflow-x: hidden;
+}
+h1, h2, h3, h4 {
+    font-family: 'Titillium Web', sans-serif;
+}
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+.button {
+    background-color: var(--principal);
+    color: var(--preto100);
+    border-radius: 0.5em;
+    padding: 0.25em 0.5em;
+    transition: 1s;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+.button:hover {
+    transition: 0.2s;
+    box-shadow: 0 0 0.5em var(--principal);
+}
+.botao-voltar {
+    position: absolute;
+    z-index: 1000;
+    top: 6.5em;
+    left: 2.5em;
+}
+header,footer {
+    background-color: var(--font);
+    color: var(--bg);
+    height: 5em;
+    display: flex;
+    align-items: center;
+}
+header {
+    position: relative;
+    z-index: 1000;
+    justify-content: center;
+}
+footer {
+    padding: 0.25em 1em;
+    justify-content: space-between;
+}
+main {
+    padding: 1em;
+    min-height: calc(100vh - 12.5em);
+}
+
+/****** HOME *******/
+.home-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.artigo-container { /* inclui .artigo-conteudo */
+    background: var(--bg);
+    padding: 1em;
+    border-top: 1px solid var(--font);
+    width: min(70em, 95%);
+}
+.artigo-container:first-child {
+    border-top: 0px solid var(--font);
+}
+.artigo-conteudo { /*  inclui .artigo-texto e .imagem-home */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2em;
+}
+.artigo-texto { /* inclui titulo e texto */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.artigo-texto p{ /* inclui titulo e texto */
+    text-align: justify;
+}
+.artigo-texto .button{ /* inclui titulo e texto */
+    margin-top: 2em;
+    text-align: center;
+    align-self: center;
+}
+.imagem-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.imagem-home {
+    width: 30em;
+    height: 20em;
+}
+/* para telas pequenas*/
+@media screen and (max-width: 900px){
+    .artigo-conteudo {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+    }
+    .imagem-home {
+        width: 100%;
+    }
+}
+
+/*******  ADMIN *******/
+.admin-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.listagem {
+    width: min(40em, 90%);
+    margin: 1.25em auto;
+}
+.listagem td, .listagem th {
+    text-align: center;
+    line-height: 2.5em;
+}
+.formulario {
+    width: min(40em, 90%);
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 2em;
+}
+.form-line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.form-line input, .form-line textarea {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}
+.form-botao {
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 710px){
+    .form-line {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+    .form-line input, .form-line textarea {
+        width: 100%;
+    }
+}
+
+/* mensagens de aviso*/
+@keyframes some {
+    0% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes sobe {
+    0% {
+        transform: translateY(-25vh);
+    }
+    20% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-25vh);
+    }
+}
+.status {
+    position: relative;
+    z-index: 100;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    border-radius: 0.15em;
+
+/*     animation: some 2s; */
+    animation: sobe 3s;
+    animation-fill-mode: forwards; 
+}
